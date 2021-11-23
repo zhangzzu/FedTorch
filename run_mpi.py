@@ -1,4 +1,5 @@
 import os
+# 命令行解析的标准模块，直接在命令行中向程序传入参数，让程序运行
 import argparse
 
 
@@ -99,6 +100,7 @@ def main(args):
     #     '--lr_alpha': 1,
     # }
 
+    #将 update 中的属性 添加到 training_params 中
     training_params.update(model_params)
     training_params.update(data_params)
     training_params.update(federated_params)
@@ -158,7 +160,8 @@ if __name__ == "__main__":
   parser.add_argument('-sf', '--sensitive_feature', default=9, type=int)
   parser.add_argument('-B',  '--quantized_bits', default=8, type=int)
   parser.add_argument('-pm', '--fedprox_mu', default=0.002, type=float)
-  
+   
+  #把parser 中设置的所有 add_argument 返回到args 子类实例当中。
   args = parser.parse_args()
 
   main(args)
